@@ -53,16 +53,15 @@ const dadosClient = {
 };
 
 // Tutorial de como manipular o CRUD.
-console.log('Comandos : ');
+console.log("Comandos : ");
 console.log(" buscar:    buscarPorLocalStorage(indice)  ");
 console.log(" adcionar:  criarClient(dadosClient)  ");
-console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)")
-console.log(" deletar:   deletarClient(numeroquetuquer)")
-console.log(' listar:    listarClientes() ');
-console.log(' Turorial:  tutorialAdciona() ')
-console.log(' clear:     limpaLog() ');
-
-
+console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)");
+console.log(" deletar:   deletarClient(numeroquetuquer)");
+console.log(" listar:    listarClientes() ");
+console.log(" Turorial:  tutorialAdciona() ");
+console.log(" newBusca:  buscarPorId() ");
+console.log(" clear:     limpaLog() ");
 
 const getLocalStorage = () =>
   JSON.parse(localStorage.getItem("db_client")) ?? [];
@@ -75,12 +74,12 @@ const setLocalStorage = (dbClient) =>
 const buscarPorLocalStorage = (indice) => {
   try {
     const dbClient = listarClientes();
-    console.log(dbClient[indice])
-    console.log('id: ',dbClient[indice].id);
-    console.log('nome: ',dbClient[indice].nome);
-    return 'Funcionario encontrado...'
+    console.log(dbClient[indice]);
+    console.log("id: ", dbClient[indice].id);
+    console.log("nome: ", dbClient[indice].nome);
+    return "Funcionario encontrado...";
   } catch (error) {
-    return 'Funcionario não existe...'
+    return "Funcionario não existe...";
   }
 };
 
@@ -99,40 +98,61 @@ const AtualizarClient = (indice, client) => {
   const dbClient = listarClientes();
   dbClient[indice] = client;
   setLocalStorage(dbClient);
-  console.log(dbClient)
+  console.log(dbClient);
 };
 
 // Crud - Delete.
 const deletarClient = (indice) => {
   const dbClient = listarClientes();
-  dbClient.splice(indice,1);
+  dbClient.splice(indice, 1);
   setLocalStorage(dbClient);
-}
+};
 
 // Limpa a tela
-let limpezas = 0
+let limpezas = 0;
 const limpaLog = () => {
-  limpezas += 1
+  limpezas += 1;
   console.clear();
-  console.log('Comandos : ');
+  console.log("Comandos : ");
   console.log(" buscar:    buscarPorLocalStorage(indice)  ");
   console.log(" adcionar:  criarClient(dadosClient)  ");
-  console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)")
-  console.log(" deletar:   deletarClient(numeroquetuquer)")
-  console.log(' listar:    listarClientes() ');
-  console.log(' Turorial:  tutorialAdciona() ')
-  console.log(' clear:     limpaLog() ');
-  return 'A tela foi limpa { '+ limpezas + ' } vezes.';
-}
+  console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)");
+  console.log(" deletar:   deletarClient(numeroquetuquer)");
+  console.log(" listar:    listarClientes() ");
+  console.log(" Turorial:  tutorialAdciona() ");
+  console.log(" newBusca:  buscarPorId() ");
+  console.log(" clear:     limpaLog() ");
+  return "A tela foi limpa { " + limpezas + " } vezes.";
+};
 
 //Exemplo de como Adcionar
 const tutorialAdciona = () => {
-  console.log('|{  Para Adicionar ou alterar algum arquivo :  }|')
-  console.log(' Para atualizar:  \n \n AtualizarClient(4,({'+
-    ' \n cargo: "EXEMPLO",'+
-    ' \n genero: "EXEMPLO",'+
-    ' \n id: 0,'+
-    ' \n nome: "EXEMPLO",'+
-    ' \n salario: 0.00,'+
-    ' \n situacaoAtual: "EXEMPLO",}))');
-}
+  console.log("|{  Para Adicionar ou alterar algum arquivo :  }|");
+  console.log(
+    " Para atualizar:  \n \n AtualizarClient(4,({" +
+      ' \n cargo: "EXEMPLO",' +
+      ' \n genero: "EXEMPLO",' +
+      " \n id: 0," +
+      ' \n nome: "EXEMPLO",' +
+      " \n salario: 0.00," +
+      ' \n situacaoAtual: "EXEMPLO",}))'
+  );
+};
+
+// Buscar por id.
+const buscarPorId = () => {
+  let inicio = [];
+  try {
+    const dbClient = listarClientes();
+    for (let index = 0; index < dbClient.length; index++) {
+      console.log("ID : "+ dbClient[index].id + " | Indice : " + index);
+      inicio.push(dbClient[index].id);
+    }
+    inicio.forEach(function (item, indice) {
+      console.log(' item: ',item,' | indice:', indice);
+    });
+    return "IDS listados...";
+  } catch (e) {
+    return "IDS não listados..." + e;
+  }
+};
