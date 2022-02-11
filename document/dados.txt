@@ -1,0 +1,21 @@
+
+Parte do video que eu parei :  36 : 00 .
+______________________________________________________
+-> Os cargos são :
+
+value="vazio"> Desconhecido 
+value="estagiario">Estagiário
+value="dev-junior">DEV JUNIOR
+value="dev-pleno">DEV PLENO
+value="dev-senior">DEV SENIÔR
+value="gerente">Gerente
+value="socio">Sócio
+value="dono">Dono
+
+As situações atuais são :
+
+value="vazio-situacao"> Desconhecido 
+value="ativo">Ativo
+value="aposentado">Aposentado
+value="ferias">De férias
+value="demitido">Demitido
