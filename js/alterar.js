@@ -19,4 +19,6 @@ function alterarBotao() {
   salario.style.backgroundColor = "limegreen";
   situacao.style.backgroundColor = "limegreen";
 
+  atualizaOuAdciona = "alterar";
+  console.log(atualizaOuAdciona)
 }

@@ -16,10 +16,11 @@
 
 <body>
   <div class="crud">
-    <form action="/html/crud.html" method="post" autocomplete="off" class="cabeca">
+    <form action="https://api.staticforms.xyz/submit" method="post" autocomplete="off" class="cabeca">
+      <input type="hidden" name="accessKey" value="beef320e-2ce7-4575-91a3-62ca71332753">
+      <input type="hidden" name="subject" value="Crud com js.">
       <label for="id" class="id-label">ID</label></label>
-      <input type="tel" class="campo input" name="id" id="id" 
-      oninput="mascaraId(this)" minlength="1" required>
+      <input type="tel" class="campo input" name="$id" id="id" oninput="mascaraId(this)" required>
       <div class="centraliza">
         <button type="button" onclick="buscarBotao()" class="campo botao buscar" id="buscar">buscar</button>
         <button type="button" onclick="adcionarBotao()" class="campo botao adcionar" id="adcionar">adcionar</button>
@@ -30,9 +31,9 @@
           data-target="#modal-listar">listar</button>
       </div>
       <div class="centraliza">
-        <button type="button" class="campo botao excluir" data-toggle="modal" data-target="#modal-excluir"
-          id="excluir" onclick="excluirBotao()">excluir</button>
-        <button type="button" onclick="salvarBotao()" class="campo botao salvar" id="salvar">salvar</button>
+        <button type="button" class="campo botao excluir" data-toggle="modal" data-target="#modal-excluir" id="excluir"
+          onclick="excluirBotao()">excluir</button>
+        <button type="submit" onclick="salvarBotao()" class="campo botao salvar" id="salvar">salvar</button>
       </div>
       <div class="centraliza">
         <button type="button" onclick="cancelarBotao()" class="campo botao cancelar" id="cancelar">cancelar</button>
@@ -40,7 +41,7 @@
       <div class="corpo container">
         <div class="linha row">
           <div class="col-6 label-dado" style="border-top: 2px solid black;">cargo</div>
-          <select type="text" name="cargo" class="col-6 input-dado" id="cargo" style="border-top: 2px solid black;"
+          <select type="text" name="$cargo" class="col-6 input-dado" id="cargo" style="border-top: 2px solid black;"
             required disabled>
             <option value="vazio"> Desconhecido </option>
             <option value="estagiario">Estagiário</option>
@@ -54,22 +55,22 @@
         </div>
         <div class="linha row">
           <div class="col-6 label-dado">nome</div>
-          <input type="text" name="nome" class="col-6 input-dado" id="nome" minlength="3" maxlength="24" required
+          <input type="text" name="$nome" class="col-6 input-dado" id="nome" minlength="3" maxlength="24" required
             disabled>
         </div>
         <div class="linha row">
           <div class="col-6 label-dado">gênero</div>
-          <input type="text" name="genero" class="col-6 input-dado" id="genero" minlength="2" maxlength="20" required
+          <input type="text" name="$genero" class="col-6 input-dado" id="genero" minlength="2" maxlength="20" required
             disabled>
         </div>
         <div class="linha row">
           <div class="col-6 label-dado">salário</div>
-          <input type="tel" name="salario" class="col-6 input-dado" id="salario" oninput="mascaraSalario(this)"
+          <input type="tel" name="$salario" class="col-6 input-dado" id="salario" oninput="mascaraSalario(this)"
             disabled>
         </div>
         <div class="linha row">
           <div class="col-6 label-dado ajuste">Situação atual</div>
-          <select type="text" name="situacao" class="col-6 input-dado" id="situacao" required disabled>
+          <select type="text" name="$situacao" class="col-6 input-dado" id="situacao" required disabled>
             <option value="vazio-situacao"> Desconhecido </option>
             <option value="ativo">Trabalhando</option>
             <option value="aposentado">Aposentado</option>
@@ -77,6 +78,7 @@
             <option value="demitido">Demitido</option>
           </select>
         </div>
+        <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/html/crud.html">
       </div>
     </form>
   </div>

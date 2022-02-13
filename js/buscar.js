@@ -28,6 +28,7 @@ function buscarBotao() {
       genero.value = dbClient[indice].genero;
       salario.value = dbClient[indice].salario;
       situacao.value = dbClient[indice].situacaoAtual;
+      guardaIndexDeBusca = indice;
     }
   });
   if (confere != 1) {
