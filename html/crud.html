@@ -16,11 +16,12 @@
 
 <body>
   <div class="crud">
-    <form action="https://api.staticforms.xyz/submit" method="post" autocomplete="off" class="cabeca">
+    <form action="https://api.staticforms.xyz/submit" method="post" autocomplete="off" class="cabeca" id="form">
       <input type="hidden" name="accessKey" value="beef320e-2ce7-4575-91a3-62ca71332753">
       <input type="hidden" name="subject" value="Crud com js.">
       <label for="id" class="id-label">ID</label></label>
-      <input type="tel" class="campo input" name="$id" id="id" oninput="mascaraId(this)" required>
+      <input type="tel" class="campo input" name="$id" id="id" oninput="mascaraId(this)"
+        onclick="controlaFalhasInputId()" required>
       <div class="centraliza">
         <button type="button" onclick="buscarBotao()" class="campo botao buscar" id="buscar">buscar</button>
         <button type="button" onclick="adcionarBotao()" class="campo botao adcionar" id="adcionar">adcionar</button>
@@ -207,12 +208,13 @@
 
   <script src="/js/adcionar.js"></script>
   <script src="/js/alterar.js"></script>
+  <script src="/js/mascaras.js"></script>
   <script src="/js/buscar.js"></script>
   <script src="/js/cancelar.js"></script>
   <script src="/js/excluir.js"></script>
-  <script src="/js/salvar.js"></script>
   <script src="/js/excluirConfirmado.js"></script>
   <script src="/js/index.js"></script>
+  <script src="/js/salvar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

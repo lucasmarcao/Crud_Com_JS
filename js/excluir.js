@@ -1,4 +1,12 @@
 function excluirBotao() {
-  const textoExclui = document.getElementById('texto-exclusao');
-  textoExclui.innerHTML = "Deseja excluir o item de id  : <br> { "+entradaId.value+" } ?"
+  // essa constante é o texto do MODAL.
+  const textoExclui = document.getElementById("texto-exclusao");
+
+  // Mensagem enviada para o texto do modal.
+  textoExclui.innerHTML =
+    "Deseja excluir o item de id  : <br> { " +
+    entradaId.value +
+    " }. E o nome : <br> {  " +
+    nome.value +
+    "  } ?";
 }
