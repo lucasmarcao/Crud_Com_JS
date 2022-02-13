@@ -28,6 +28,7 @@ body {
 .campo {
   margin: 5px 7px;
   padding: 10px;
+  font-family: Cambria, Cochin !important;
 }
 
 .id-label {
@@ -51,19 +52,21 @@ body {
 .botao {
   border: 1px solid wheat;
   text-transform: uppercase;
-  font-family: cursive;
+  letter-spacing: 1px;
+  font-family: Georgia;
   font-weight: bold;
   font-size: 16px;
   width: 110px;
 }
 
 .botao:hover {
-  background: linear-gradient(yellow, wheat);
-  transition: 0.5s;
+  background: linear-gradient( rgb(213, 255, 28),rgb(73, 122, 116));
+  color: black;
 }
 
 .buscar {
   background-color: rgb(1, 73, 1);
+  color: cornsilk;
 }
 .adcionar {
   background-color: lightblue;
@@ -112,6 +115,7 @@ body {
   border: 2px solid black;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  font-family: Cambria, Cochin !important;
 }
 
 .label-dado {
@@ -119,7 +123,6 @@ body {
   background-color: rgb(87, 82, 75);
   padding: 26px 0;
   color: cornsilk;
-  font-family: cursive;
   text-transform: uppercase;
 }
 
@@ -278,7 +281,10 @@ h4 {
     font-size: 20px;
   }
   .input-dado {
-    font-size: 14px;
+    font-size: 18px;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 0 3px;
   }
 
   .input {

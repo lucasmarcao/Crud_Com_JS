@@ -17,5 +17,6 @@ function adcionarBotao() {
   genero.style.backgroundColor = "limegreen";
   salario.style.backgroundColor = "limegreen";
   situacao.style.backgroundColor = "limegreen";
-
+  atualizaOuAdciona = "adciona";
+  console.log(atualizaOuAdciona)
 }

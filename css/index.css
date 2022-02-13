@@ -13,8 +13,9 @@ h1 {
   margin-bottom: 20px;
   padding: 15px 0;
   text-align: center;
-  color: antiquewhite;
-  background: linear-gradient(black,rgb(0, 0, 255));
+  color: rgb(31, 31, 31);
+  background: linear-gradient(rgba(172, 172, 172, 0.65),rgb(229, 255, 0));
+  box-shadow: 10px 10px 10px rgb(82, 95, 46);
 }
 
 fieldset {

@@ -63,6 +63,8 @@ console.log(" Turorial:  tutorialAdciona() ");
 console.log(" newBusca:  buscarPorId() ");
 console.log(" clear:     limpaLog() ");
 
+var atualizaOuAdciona = "";
+var guardaIndexDeBusca = 0
 const getLocalStorage = () =>
   JSON.parse(localStorage.getItem("db_client")) ?? [];
 const setLocalStorage = (dbClient) =>
@@ -145,11 +147,11 @@ const buscarPorId = () => {
   try {
     const dbClient = listarClientes();
     for (let index = 0; index < dbClient.length; index++) {
-      console.log("ID : "+ dbClient[index].id + " | Indice : " + index);
+      console.log("ID : " + dbClient[index].id + " | Indice : " + index);
       inicio.push(dbClient[index].id);
     }
     inicio.forEach(function (item, indice) {
-      console.log(' item: ',item,' | indice:', indice);
+      console.log(" item: ", item, " | indice:", indice);
     });
     return "IDS listados...";
   } catch (e) {
