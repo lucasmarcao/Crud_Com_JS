@@ -39,7 +39,7 @@ function buscarBotao() {
       excluir.style.display = "none"; // botão excluir some
     } else {
       console.log("----> Tu nem digitou nada");
-      adcionar.style.display = "none"; // botão ADCIONAR aparece
+      adcionar.style.display = "none"; // botão ADCIONAR some
       alterar.style.display = "none"; // botão Alterar some
       excluir.style.display = "none"; // botão excluir some
     }

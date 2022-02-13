@@ -16,59 +16,38 @@ var genero = document.getElementById("genero");
 var salario = document.getElementById("salario");
 var situacao = document.getElementById("situacao");
 
-// MASCARAS :--->
-function mascaraId(n) {
-  let c = n.value;
-
-  if (isNaN(c[c.length - 1])) {
-    // impede entrar outro caractere que não seja número
-    n.value = c.substring(0, c.length - 1);
-    return;
-  }
-
-  n.setAttribute("maxlength", "5");
-}
-
-function mascaraSalario(n) {
-  let c = n.value;
-
-  if (isNaN(c[c.length - 1]) && "," != c[c.length - 1]) {
-    // impede entrar outro caractere que não seja número
-    n.value = c.substring(0, c.length - 1);
-    return;
-  }
-
-  n.setAttribute("maxlength", "15");
-}
-//--------------------------------------------------
 //inicio CRUD
-
 const dadosClient = {
+  // exemplo Pronto de JSON
   id: 44,
   cargo: "dev-senior",
   nome: "Angelina Joli",
   genero: "Feminino",
   salario: 4200.25,
   situacaoAtual: "ferias",
+  // Para que no terminal o usuario não precise escrever muito.
 };
 
-// Tutorial de como manipular o CRUD.
+// Tutorial de como manipular o CRUD. (via console)
 console.log("Comandos : ");
-console.log(" buscar:    buscarPorLocalStorage(indice)  ");
+console.log(" buscar:    buscarPorLocalStorage(numeroquetuquer)  ");
+console.log(" newBusca:  buscarPorId() ");
 console.log(" adcionar:  criarClient(dadosClient)  ");
 console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)");
 console.log(" deletar:   deletarClient(numeroquetuquer)");
 console.log(" listar:    listarClientes() ");
-console.log(" Turorial:  tutorialAdciona() ");
-console.log(" newBusca:  buscarPorId() ");
+console.log(" Turorial:  tutorial() ");
 console.log(" clear:     limpaLog() ");
 
-var atualizaOuAdciona = "";
-var guardaIndexDeBusca = 0
+// Variaveis CHAVE do localStorage
 const getLocalStorage = () =>
   JSON.parse(localStorage.getItem("db_client")) ?? [];
 const setLocalStorage = (dbClient) =>
   localStorage.setItem("db_client", JSON.stringify(dbClient));
+
+// Variaveis responsaveis pelo controle do CRUD
+var atualizaOuAdciona = "";
+var guardaIndexDeBusca = 0;
 
 //CRUD - CREATE , READ , UPDATE , DELETE.
 
@@ -83,62 +62,6 @@ const buscarPorLocalStorage = (indice) => {
   } catch (error) {
     return "Funcionario não existe...";
   }
-};
-
-// Crud - Create.
-const criarClient = (client) => {
-  const dbClient = getLocalStorage();
-  dbClient.push(client);
-  setLocalStorage(dbClient);
-};
-
-// Crud - Read.
-const listarClientes = () => getLocalStorage();
-
-// Crud - Update.
-const AtualizarClient = (indice, client) => {
-  const dbClient = listarClientes();
-  dbClient[indice] = client;
-  setLocalStorage(dbClient);
-  console.log(dbClient);
-};
-
-// Crud - Delete.
-const deletarClient = (indice) => {
-  const dbClient = listarClientes();
-  dbClient.splice(indice, 1);
-  setLocalStorage(dbClient);
-};
-
-// Limpa a tela
-let limpezas = 0;
-const limpaLog = () => {
-  limpezas += 1;
-  console.clear();
-  console.log("Comandos : ");
-  console.log(" buscar:    buscarPorLocalStorage(indice)  ");
-  console.log(" adcionar:  criarClient(dadosClient)  ");
-  console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)");
-  console.log(" deletar:   deletarClient(numeroquetuquer)");
-  console.log(" listar:    listarClientes() ");
-  console.log(" Turorial:  tutorialAdciona() ");
-  console.log(" newBusca:  buscarPorId() ");
-  console.log(" clear:     limpaLog() ");
-  return "A tela foi limpa { " + limpezas + " } vezes.";
-};
-
-//Exemplo de como Adcionar
-const tutorialAdciona = () => {
-  console.log("|{  Para Adicionar ou alterar algum arquivo :  }|");
-  console.log(
-    " Para atualizar:  \n \n AtualizarClient(4,({" +
-      ' \n cargo: "EXEMPLO",' +
-      ' \n genero: "EXEMPLO",' +
-      " \n id: 0," +
-      ' \n nome: "EXEMPLO",' +
-      " \n salario: 0.00," +
-      ' \n situacaoAtual: "EXEMPLO",}))'
-  );
 };
 
 // Buscar por id.
@@ -157,4 +80,72 @@ const buscarPorId = () => {
   } catch (e) {
     return "IDS não listados..." + e;
   }
+};
+
+// Crud - Create.
+const criarClient = (client) => {
+  const dbClient = getLocalStorage();
+  dbClient.push(client);
+  setLocalStorage(dbClient);
+  return "Novo Funcionário Registrado.";
+};
+
+// Crud - Read.
+const listarClientes = () => getLocalStorage();
+
+// Crud - Update.
+const AtualizarClient = (indice, client) => {
+  const dbClient = listarClientes();
+  dbClient[indice] = client;
+  setLocalStorage(dbClient);
+  return "Dados do Funcionário atualizados.";
+};
+
+// Crud - Delete.
+const deletarClient = (indice) => {
+  const dbClient = listarClientes();
+  dbClient.splice(indice, 1);
+  setLocalStorage(dbClient);
+};
+
+// mostra as vezes que a tela foi limpada.
+let limpezas = 0;
+// Limpa a tela
+const limpaLog = () => {
+  limpezas += 1;
+  console.clear();
+  console.log("Comandos : ");
+  console.log(" buscar:    buscarPorLocalStorage(numeroquetuquer)  ");
+  console.log(" newBusca:  buscarPorId() ");
+  console.log(" adcionar:  criarClient(dadosClient)  ");
+  console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)");
+  console.log(" deletar:   deletarClient(numeroquetuquer)");
+  console.log(" listar:    listarClientes() ");
+  console.log(" Turorial:  tutorial() ");
+  console.log(" clear:     limpaLog() ");
+  return "A tela foi limpa { " + limpezas + " } vezes.";
+};
+
+//Exemplo de como Adcionar ou Alterar
+const tutorial = () => {
+  console.log("|{  Para Adicionar ou alterar algum arquivo :  }|");
+  console.warn(
+    " Para Atualizar:  \n \n AtualizarClient(4,({" +
+      ' \n cargo: "vazio",' +
+      ' \n genero: "EXEMPLO",' +
+      " \n id: 0," +
+      ' \n nome: "EXEMPLO",' +
+      " \n salario: 0.00," +
+      ' \n situacaoAtual: "vazio-situacao",}))'
+  );
+  console.log("-------------------------------------------");
+  console.warn(
+    " Para Adcionar:  \n \n criarClient(({" +
+      ' \n cargo: "EXEMPLO",' +
+      ' \n genero: "EXEMPLO",' +
+      " \n id: 0," +
+      ' \n nome: "EXEMPLO",' +
+      " \n salario: 0.00," +
+      ' \n situacaoAtual: "vazio-situacao",}))'
+  );
 };

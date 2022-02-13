@@ -1,10 +1,12 @@
 function alterarBotao() {
-  buscar.style.display = "none"
-  alterar.style.display = "none"
-  salvar.style.display = "inline"
-  cancelar.style.display = "inline"
-  excluir.style.display = "none" // botão excluir some
+  //controla os botãoes que podem aparecer.
+  buscar.style.display = "none";
+  alterar.style.display = "none";
+  salvar.style.display = "inline";
+  cancelar.style.display = "inline";
+  excluir.style.display = "none";
 
+  //controla os inputs que podem ser digitados.
   entradaId.disabled = true;
   cargo.disabled = false;
   nome.disabled = false;
@@ -12,13 +14,18 @@ function alterarBotao() {
   salario.disabled = false;
   situacao.disabled = false;
 
-  entradaId.style.color = "white"
+  // Estiliza os inputs
+  entradaId.style.color = "white";
   cargo.style.backgroundColor = "limegreen";
   nome.style.backgroundColor = "limegreen";
   genero.style.backgroundColor = "limegreen";
   salario.style.backgroundColor = "limegreen";
   situacao.style.backgroundColor = "limegreen";
 
+  //reabilita o botão Salvar.
+  salvar.removeAttribute("disabled");
+
+  //mostra o tipo de jeito que a informação vai ser salva.
   atualizaOuAdciona = "alterar";
-  console.log(atualizaOuAdciona)
+  console.log(atualizaOuAdciona);
 }

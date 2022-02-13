@@ -1,10 +1,6 @@
 function salvarBotao() {
   const dbClient = listarClientes();
-
   if (nome.value != "" && genero.value != "" && dbClient.length <= 100) {
-    buscar.style.display = "inline";
-    salvar.style.display = "none";
-    cancelar.style.display = "none";
     entradaId.disabled = false;
     console.clear();
     console.log("dados Salvos !!!"); // mais codigo inutil
@@ -34,42 +30,46 @@ function salvarBotao() {
       //caso o usuario esteja adcionando dados
       console.info("ADICIONOU");
       if (salario.value != "") {
-        criarClient(({ 
-          cargo: cargo.value, 
-          genero: genero.value, 
-          id: Number(entradaId.value), 
-          nome: nome.value, 
-          salario: Number(salario.value), 
-          situacaoAtual: situacao.value,}));
+        criarClient({
+          cargo: cargo.value,
+          genero: genero.value,
+          id: Number(entradaId.value),
+          nome: nome.value,
+          salario: Number(salario.value),
+          situacaoAtual: situacao.value,
+        });
       } else {
-        criarClient(({ 
-          cargo: cargo.value, 
-          genero: genero.value, 
-          id: Number(entradaId.value), 
-          nome: nome.value, 
-          salario: 0, 
-          situacaoAtual: situacao.value,}));
+        criarClient({
+          cargo: cargo.value,
+          genero: genero.value,
+          id: Number(entradaId.value),
+          nome: nome.value,
+          salario: 0,
+          situacaoAtual: situacao.value,
+        });
       }
     }
     if (atualizaOuAdciona == "alterar") {
       //caso o usuario esteja alterando dados
       console.info("ALTEROU");
       if (salario.value != "") {
-        AtualizarClient(guardaIndexDeBusca,({ 
-          cargo: cargo.value, 
-          genero: genero.value, 
-          id: Number(entradaId.value), 
-          nome: nome.value, 
-          salario: Number(salario.value), 
-          situacaoAtual: situacao.value,}));
+        AtualizarClient(guardaIndexDeBusca, {
+          cargo: cargo.value,
+          genero: genero.value,
+          id: Number(entradaId.value),
+          nome: nome.value,
+          salario: Number(salario.value),
+          situacaoAtual: situacao.value,
+        });
       } else {
-        AtualizarClient(guardaIndexDeBusca,({ 
-          cargo: cargo.value, 
-          genero: genero.value, 
-          id: Number(entradaId.value), 
-          nome: nome.value, 
-          salario: 0, 
-          situacaoAtual: situacao.value,}));
+        AtualizarClient(guardaIndexDeBusca, {
+          cargo: cargo.value,
+          genero: genero.value,
+          id: Number(entradaId.value),
+          nome: nome.value,
+          salario: 0,
+          situacaoAtual: situacao.value,
+        });
       }
     }
   } else {
