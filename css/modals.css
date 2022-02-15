@@ -1,0 +1,115 @@
+/* modals */
+.titulo-modal {
+  background: url(/img/fundo2.jpg);
+  color: aliceblue;
+}
+
+.corpo-modal {
+  background: url(/img/fundo1.jpg);
+}
+.demo {
+  margin-left: 2%;
+  width: 96%;
+  border-collapse: collapse;
+  background: url(/img/fundo2.jpg);
+  padding: 5px;
+  padding-right: 1px;
+}
+
+.cabeca-modal {
+  display: flex;
+  width: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+h4 {
+  font-size: 12px !important;
+}
+
+.cabeca-item {
+  margin-bottom: 5px;
+  margin-right: 2px;
+  padding-top: 10px;
+  display: inline-flex;
+  width: 95px;
+  background-color: seagreen;
+  height: 50px;
+  border: #000000 2px solid;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.itens {
+  background-color: rgb(115, 133, 118);
+  display: inline-flex;
+  width: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dado-item {
+  margin-top: 3px;
+  margin-bottom: 2px;
+  margin-right: 6.2px;
+  background-color: rgb(197, 184, 168);
+  border: 2px solid #000000;
+  text-align: center;
+  display: inline-flex;
+  width: 15%;
+  font-size: 12px !important;
+  height: 40px;
+  padding: 5px 0;
+  word-wrap: break-word;
+  word-break: break-all;
+  justify-content: center;
+  align-items: center;
+}
+
+.id-item {
+  background-color: aqua;
+  font-weight: bold;
+}
+
+.scroll {
+  height: 360px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.scroll::-webkit-scrollbar {
+  background-color: black !important;
+}
+.scroll::-webkit-scrollbar-thumb {
+  border: rgba(38, 58, 49, 0.6) 2px solid;
+  background: url(/img/fundo1.jpg) !important;
+  border-radius: 15px;
+}
+.scroll::-webkit-scrollbar-corner {
+  background: black !important;
+  color: #000000 !important;
+}
+.close {
+  margin-top: 0 !important;
+  margin-right: 0 !important;
+  height: 40px !important;
+  background-color: rgb(255, 1, 1) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-footer {
+  border-top: none !important;
+}
+
+/* Modal excluir */
+#negado,
+#confirmado {
+  width: 200px;
+  height: 40px;
+  margin-top: 20px;
+}

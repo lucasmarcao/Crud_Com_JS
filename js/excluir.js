@@ -4,9 +4,9 @@ function excluirBotao() {
 
   // Mensagem enviada para o texto do modal.
   textoExclui.innerHTML =
-    "Deseja excluir o item de id  : <br> { " +
+    "Deseja excluir o item de id  : <br> [ " +
     entradaId.value +
-    " }. E o nome : <br> {  " +
+    " ]. E de nome : <br> {  " +
     nome.value +
     "  } ?";
 }

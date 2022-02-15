@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/crud.css">
+  <link rel="stylesheet" href="/css/modals.css">
 </head>
 
 <body>
@@ -29,7 +30,7 @@
       <div class="centraliza">
         <button type="button" onclick="alterarBotao()" class="campo botao alterar" id="alterar">alterar</button>
         <button type="button" class="btn campo botao listar" id="listar" data-toggle="modal"
-          data-target="#modal-listar">listar</button>
+          data-target="#modal-listar" onclick="listarCrud()">listar</button>
       </div>
       <div class="centraliza">
         <button type="button" class="campo botao excluir" data-toggle="modal" data-target="#modal-excluir" id="excluir"
@@ -91,13 +92,14 @@
       <div class="modal-content">
         <div class="modal-header titulo-modal">
           <h5 class="modal-title" id="staticBackdropLabel">Tytotech</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button id="fechalista" onclick="fecharLista()"
+          type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true" class="x">&times;</span>
           </button>
         </div>
         <div class="modal-body corpo-modal">
           <div class="demo">
-            <div class="scroll">
+            <div class="scroll" id="corpo-lista">
               <div class="cabeca-modal">
                 <div class="cabeca-item">
                   <h4>ID</h4>
@@ -118,57 +120,14 @@
                   <h4>SITUAÇÃO</h4>
                 </div>
               </div>
-              <div class="itens">
-                <div class="dado-item id-item">1</div>
-                <div class="dado-item">Estagiário</div>
-                <div class="dado-item">Lucas Marcão</div>
-                <div class="dado-item">Masculino</div>
-                <div class="dado-item">200,00</div>
-                <div class="dado-item">Ativo</div>
-              </div>
-              <div class="itens">
-                <div class="dado-item id-item">2</div>
-                <div class="dado-item">Estagiário</div>
-                <div class="dado-item">Maria Clara</div>
-                <div class="dado-item">Feminino</div>
-                <div class="dado-item">230,00</div>
-                <div class="dado-item">Ativo</div>
-              </div>
-              <div class="itens">
-                <div class="dado-item id-item">3</div>
-                <div class="dado-item">Estagiário</div>
-                <div class="dado-item">Nicolas serumanovik</div>
-                <div class="dado-item">Masculino</div>
-                <div class="dado-item">260,00</div>
-                <div class="dado-item">Ativo</div>
-              </div>
-              <div class="itens">
-                <div class="dado-item id-item">4</div>
-                <div class="dado-item">Socio</div>
-                <div class="dado-item">Renan Rodriges</div>
-                <div class="dado-item">Masculino</div>
-                <div class="dado-item">3000,00</div>
-                <div class="dado-item">Ativo</div>
-              </div>
-              <div class="itens">
-                <div class="dado-item id-item">5</div>
-                <div class="dado-item">Gerente</div>
-                <div class="dado-item">Thomas Mazon</div>
-                <div class="dado-item">Masculino</div>
-                <div class="dado-item">5000,00</div>
-                <div class="dado-item">Férias</div>
-              </div>
-              <div class="itens">
-                <div class="dado-item id-item">6</div>
-                <div class="dado-item">DEV JUNIOR</div>
-                <div class="dado-item">Vinicis bot</div>
-                <div class="dado-item">Masculino</div>
-                <div class="dado-item">1580,00</div>
-                <div class="dado-item">Ativo</div>
-              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -212,6 +171,7 @@
   <script src="/js/buscar.js"></script>
   <script src="/js/cancelar.js"></script>
   <script src="/js/excluir.js"></script>
+  <script src="/js/listar.js"></script>
   <script src="/js/excluirConfirmado.js"></script>
   <script src="/js/index.js"></script>
   <script src="/js/salvar.js"></script>
