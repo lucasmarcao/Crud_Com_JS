@@ -1,6 +1,9 @@
 function salvarBotao() {
   const dbClient = listarClientes();
-  if (nome.value != "" && genero.value != "" && dbClient.length <= 100) {
+  if (nome.value.length >= 3 
+  && genero.value.length >= 3  
+  && dbClient.length <= 100
+  ) {
     entradaId.disabled = false;
     console.clear();
     console.log("dados Salvos !!!"); // mais codigo inutil
