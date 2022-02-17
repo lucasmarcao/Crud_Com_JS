@@ -5,6 +5,7 @@ function buscarBotao() {
   let verificaId = entradaId.value;
   let validaId = Number.parseInt(verificaId);
   const dbClient = listarClientes();
+  const dbDatas = getLocalDatas();
   for (let index = 0; index < dbClient.length; index++) {
     comeco.push(dbClient[index].id);
   }
@@ -22,6 +23,14 @@ function buscarBotao() {
       adcionar.style.display = "none"; // botão ADCIONAR some
       alterar.style.display = "inline"; // botão Alterar aparece
       excluir.style.display = "inline"; // botão excluir aparece
+      let tam = Number(window.document.body.clientWidth);
+      if (tam > 991.98) {
+        modificacao.style.display = "inline";
+        inclusao.style.display = "inline";
+      } else {
+        modificacao.style.display = "block";
+        inclusao.style.display = "block";
+      }
       confere = 1;
       cargo.value = dbClient[indice].cargo;
       nome.value = dbClient[indice].nome;
@@ -29,6 +38,8 @@ function buscarBotao() {
       salario.value = dbClient[indice].salario;
       situacao.value = dbClient[indice].situacaoAtual;
       guardaIndexDeBusca = indice;
+      modificacao.innerHTML = " Data Modificação : "+ dbDatas[indice].modifica;
+      inclusao.innerHTML = " Data Inclusão : "+  dbDatas[indice].inclui;
     }
   });
   if (confere != 1) {

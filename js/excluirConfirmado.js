@@ -16,4 +16,9 @@ function confirmadoExluir() {
 
   //basicamente exclui quem voce escolheu.
   deletarClient(guardaIndexDeBusca);
+  deletarDatas(guardaIndexDeBusca);
+
+  // faz os dados Data sumir.
+  modificacao.style.display = "none";
+  inclusao.style.display = "none";
 }

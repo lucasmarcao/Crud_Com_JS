@@ -1,8 +1,10 @@
 function salvarBotao() {
   const dbClient = listarClientes();
-  if (nome.value.length >= 3 
-  && genero.value.length >= 3  
-  && dbClient.length <= 100
+  const dbDatas = getLocalDatas();
+  if (
+    nome.value.length >= 3 &&
+    genero.value.length >= 3 &&
+    dbClient.length <= 100
   ) {
     entradaId.disabled = false;
     console.clear();
@@ -41,6 +43,10 @@ function salvarBotao() {
           salario: Number(salario.value),
           situacaoAtual: situacao.value,
         });
+        criarDatas({
+          inclui: imprimi,
+          modifica: imprimi,
+        });
       } else {
         criarClient({
           cargo: cargo.value,
@@ -49,6 +55,10 @@ function salvarBotao() {
           nome: nome.value,
           salario: 0,
           situacaoAtual: situacao.value,
+        });
+        criarDatas({
+          inclui: imprimi,
+          modifica: imprimi,
         });
       }
     }
@@ -64,6 +74,10 @@ function salvarBotao() {
           salario: Number(salario.value),
           situacaoAtual: situacao.value,
         });
+        AtualizarDatas(guardaIndexDeBusca, {
+          inclui: dbDatas[guardaIndexDeBusca].inclui,
+          modifica: imprimi,
+        });
       } else {
         AtualizarClient(guardaIndexDeBusca, {
           cargo: cargo.value,
@@ -72,6 +86,10 @@ function salvarBotao() {
           nome: nome.value,
           salario: 0,
           situacaoAtual: situacao.value,
+        });
+        AtualizarDatas(guardaIndexDeBusca, {
+          inclui: dbDatas[guardaIndexDeBusca].inclui,
+          modifica: imprimi,
         });
       }
     }
