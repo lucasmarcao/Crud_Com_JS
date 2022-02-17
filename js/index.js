@@ -16,62 +16,149 @@ var genero = document.getElementById("genero");
 var salario = document.getElementById("salario");
 var situacao = document.getElementById("situacao");
 
-//inicio CRUD
-const dadosClient = {
-  // exemplo Pronto de JSON
-  id: 44,
-  cargo: "dev-senior",
-  nome: "Angelina Joli",
-  genero: "Feminino",
-  salario: 4200.25,
-  situacaoAtual: "ferias",
-  // Para que no terminal o usuario não precise escrever muito.
-};
+// Retornar Datas Inclusão // Modificação.
 
-// Tutorial de como manipular o CRUD. (via console)
-console.log("Comandos : ");
-console.log(" buscar:    buscarPorLocalStorage(numeroquetuquer)  ");
-console.log(" newBusca:  buscarPorId() ");
-console.log(" adcionar:  criarClient(dadosClient)  ");
-console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)");
-console.log(" deletar:   deletarClient(numeroquetuquer)");
-console.log(" listar:    listarClientes() ");
-console.log(" Turorial:  tutorial() ");
-console.log(" clear:     limpaLog() ");
+// variaveis Date :
+var data = new Date();
+var dia = data.getDate();
+var mes = Number(data.getMonth() + 1);
+var hora = data.getHours();
+var minuto = data.getMinutes();
+var ano = data.getFullYear();
 
-// Variaveis CHAVE do localStorage
-const getLocalStorage = () =>
-  JSON.parse(localStorage.getItem("db_client")) ?? [];
-const setLocalStorage = (dbClient) =>
-  localStorage.setItem("db_client", JSON.stringify(dbClient));
+var inclusao = document.getElementById("inclusao");
+var modificacao = document.getElementById("modificacao");
 
-// Variaveis responsaveis pelo controle do CRUD
-var atualizaOuAdciona = "";
-var guardaIndexDeBusca = 0;
+var imprimi =
+  " " +
+  dia.toString() +
+  "/" +
+  mes.toString() +
+  "/" +
+  ano.toString() +
+  " " +
+  hora.toString() +
+  ":" +
+  minuto.toString();
 
-//CRUD - CREATE , READ , UPDATE , DELETE.
-
-// Crud - Buscar
-const buscarPorLocalStorage = (indice) => {
-  try {
-    const dbClient = listarClientes();
-    console.log(dbClient[indice]);
-    console.log("id: ", dbClient[indice].id);
-    console.log("nome: ", dbClient[indice].nome);
-    return "Funcionario encontrado...";
-  } catch (error) {
-    return "Funcionario não existe...";
+if (mes < 10) {
+  imprimi =
+    " " +
+    dia.toString() +
+    "/0" +
+    mes.toString() +
+    "/" +
+    ano.toString() +
+    " " +
+    hora.toString() +
+    ":" +
+    minuto.toString();
+  if (minuto < 10) {
+    imprimi =
+      " " +
+      dia.toString() +
+      "/0" +
+      mes.toString() +
+      "/" +
+      ano.toString() +
+      " " +
+      hora.toString() +
+      ":0" +
+      minuto.toString();
   }
-};
+} else {
+  if (minuto < 10) {
+    imprimi =
+      " " +
+      dia.toString() +
+      "/0" +
+      mes.toString() +
+      "/" +
+      ano.toString() +
+      " " +
+      hora.toString() +
+      ":0" +
+      minuto.toString();
+  }
+}
 
-// Buscar por id.
-const buscarPorId = () => {
+// isso deixa a var |imprimi| em tempo REAL.
+setInterval(() => {
+  // renova todas as var a cada 1000 milisegundos.
+  let dateforma = new Date();
+  dia = dateforma.getDate();
+  mes = Number(dateforma.getMonth() + 1);
+  hora = dateforma.getHours();
+  minuto = dateforma.getMinutes();
+  ano = dateforma.getFullYear();
+  imprimi =
+    " " +
+    dia.toString() +
+    "/" +
+    mes.toString() +
+    "/" +
+    ano.toString() +
+    " " +
+    hora.toString() +
+    ":" +
+    minuto.toString();
+
+  if (mes < 10) {
+    imprimi =
+      " " +
+      dia.toString() +
+      "/0" +
+      mes.toString() +
+      "/" +
+      ano.toString() +
+      " " +
+      hora.toString() +
+      ":" +
+      minuto.toString();
+    if (minuto < 10) {
+      imprimi =
+        " " +
+        dia.toString() +
+        "/0" +
+        mes.toString() +
+        "/" +
+        ano.toString() +
+        " " +
+        hora.toString() +
+        ":0" +
+        minuto.toString();
+    }
+  } else {
+    if (minuto < 10) {
+      imprimi =
+        " " +
+        dia.toString() +
+        "/0" +
+        mes.toString() +
+        "/" +
+        ano.toString() +
+        " " +
+        hora.toString() +
+        ":0" +
+        minuto.toString();
+    }
+  }
+  // renova todas as var a cada 1000 milisegundos.
+}, 1000);
+
+// cria o localStorage com nome DATAS.
+const getLocalDatas = () => JSON.parse(localStorage.getItem("data")) ?? [];
+const setLocalDatas = (dbDatas) =>
+  localStorage.setItem("data", JSON.stringify(dbDatas));
+
+// data -  Buscar por id.
+const buscarPorIdDatas = () => {
   let inicio = [];
   try {
-    const dbClient = listarClientes();
-    for (let index = 0; index < dbClient.length; index++) {
-      console.log("ID : " + dbClient[index].id + " | Indice : " + index);
-      inicio.push(dbClient[index].id);
+    const dbDatas = listarDatas();
+    for (let index = 0; index < dbDatas.length; index++) {
+      console.log("ID : " + dbDatas[index].id + " | Indice : " + index);
+      inicio.push(dbDatas[index].id);
     }
     inicio.forEach(function (item, indice) {
       console.log(" item: ", item, " | indice:", indice);
@@ -82,70 +169,28 @@ const buscarPorId = () => {
   }
 };
 
-// Crud - Create.
-const criarClient = (client) => {
-  const dbClient = getLocalStorage();
-  dbClient.push(client);
-  setLocalStorage(dbClient);
+// data - Create.
+const criarDatas = (client) => {
+  const dbDatas = getLocalDatas();
+  dbDatas.push(client);
+  setLocalDatas(dbDatas);
   return "Novo Funcionário Registrado.";
 };
 
-// Crud - Read.
-const listarClientes = () => getLocalStorage();
+// data - Read.
+const listarDatas = () => getLocalDatas();
 
-// Crud - Update.
-const AtualizarClient = (indice, client) => {
-  const dbClient = listarClientes();
-  dbClient[indice] = client;
-  setLocalStorage(dbClient);
+// data - Update.
+const AtualizarDatas = (indice, client) => {
+  const dbDatas = listarDatas();
+  dbDatas[indice] = client;
+  setLocalDatas(dbDatas);
   return "Dados do Funcionário atualizados.";
 };
 
-// Crud - Delete.
-const deletarClient = (indice) => {
-  const dbClient = listarClientes();
-  dbClient.splice(indice, 1);
-  setLocalStorage(dbClient);
-};
-
-// mostra as vezes que a tela foi limpada.
-let limpezas = 0;
-// Limpa a tela
-const limpaLog = () => {
-  limpezas += 1;
-  console.clear();
-  console.log("Comandos : ");
-  console.log(" buscar:    buscarPorLocalStorage(numeroquetuquer)  ");
-  console.log(" newBusca:  buscarPorId() ");
-  console.log(" adcionar:  criarClient(dadosClient)  ");
-  console.log(" atualizar: AtualizarClient(numeroquetuquer,dadosClient)");
-  console.log(" deletar:   deletarClient(numeroquetuquer)");
-  console.log(" listar:    listarClientes() ");
-  console.log(" Turorial:  tutorial() ");
-  console.log(" clear:     limpaLog() ");
-  return "A tela foi limpa { " + limpezas + " } vezes.";
-};
-
-//Exemplo de como Adcionar ou Alterar
-const tutorial = () => {
-  console.log("|{  Para Adicionar ou alterar algum arquivo :  }|");
-  console.warn(
-    " Para Atualizar:  \n \n AtualizarClient(4,({" +
-      ' \n cargo: "vazio",' +
-      ' \n genero: "EXEMPLO",' +
-      " \n id: 0," +
-      ' \n nome: "EXEMPLO",' +
-      " \n salario: 0.00," +
-      ' \n situacaoAtual: "vazio-situacao",}))'
-  );
-  console.log("-------------------------------------------");
-  console.warn(
-    " Para Adcionar:  \n \n criarClient(({" +
-      ' \n cargo: "EXEMPLO",' +
-      ' \n genero: "EXEMPLO",' +
-      " \n id: 0," +
-      ' \n nome: "EXEMPLO",' +
-      " \n salario: 0.00," +
-      ' \n situacaoAtual: "vazio-situacao",}))'
-  );
+// data - Delete.
+const deletarDatas = (indice) => {
+  const dbDatas = listarDatas();
+  dbDatas.splice(indice, 1);
+  setLocalDatas(dbDatas);
 };

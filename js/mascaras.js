@@ -24,6 +24,8 @@ function controlaFalhasInputId() {
   excluir.style.display = "none"; // botão excluir some
   enter.removeAttribute("readonly"); // o botão pode ser editado.
   salvar.setAttribute("disabled", "true"); // desativa o botão salvar.
+  modificacao.style.display = "none";
+  inclusao.style.display = "none";
 }
 
 //essa função pesquisa quando eu aperto ENTER.
