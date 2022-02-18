@@ -34,12 +34,12 @@ function listarCrud() {
       situacaoItem.setAttribute("class", "dado-item");
 
       // da o conteudo de texto para os itens.
-      idItem.innerHTML = dbClient[index].id;
-      cargoItem.innerHTML = dbClient[index].cargo;
-      nomeItem.innerHTML = dbClient[index].nome;
-      salarioItem.innerHTML = dbClient[index].salario;
-      generoItem.innerHTML = dbClient[index].genero;
-      situacaoItem.innerHTML = dbClient[index].situacaoAtual;
+      idItem.innerText = dbClient[index].id;
+      cargoItem.innerText = dbClient[index].cargo;
+      nomeItem.innerText = dbClient[index].nome;
+      salarioItem.innerText = dbClient[index].salario;
+      generoItem.innerText = dbClient[index].genero;
+      situacaoItem.innerText = dbClient[index].situacaoAtual;
 
       // insere os elementos onde deveria.
       corpo.insertAdjacentElement("beforeend", itensDiv);
