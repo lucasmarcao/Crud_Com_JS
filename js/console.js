@@ -131,6 +131,3 @@ const tutorial = () => {
       ' \n situacaoAtual: "vazio-situacao",}))'
   );
 };
-
-localStorage.removeItem("db_client");
-localStorage.removeItem("data");
