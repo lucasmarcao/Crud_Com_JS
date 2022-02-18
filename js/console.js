@@ -23,9 +23,9 @@ console.log(" clear:     limpaLog() ");
 
 // Variaveis CHAVE do localStorage
 const getLocalStorage = () =>
-  JSON.parse(localStorage.getItem("db_client")) ?? [];
+  JSON.parse(localStorage.getItem("cliente")) ?? [];
 const setLocalStorage = (dbClient) =>
-  localStorage.setItem("db_client", JSON.stringify(dbClient));
+  localStorage.setItem("cliente", JSON.stringify(dbClient));
 
 // Variaveis responsaveis pelo controle do CRUD
 var atualizaOuAdciona = "";

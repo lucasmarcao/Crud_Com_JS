@@ -106,9 +106,9 @@ setInterval(() => {
 }, 1000);
 
 // cria o localStorage com nome DATAS.
-const getLocalDatas = () => JSON.parse(localStorage.getItem("data")) ?? [];
+const getLocalDatas = () => JSON.parse(localStorage.getItem("datas")) ?? [];
 const setLocalDatas = (dbDatas) =>
-  localStorage.setItem("data", JSON.stringify(dbDatas));
+  localStorage.setItem("datas", JSON.stringify(dbDatas));
 
 // data -  Buscar por id.
 const buscarPorIdDatas = () => {
