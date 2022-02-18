@@ -37,7 +37,7 @@ function listarCrud() {
       idItem.innerText = dbClient[index].id;
       cargoItem.innerText = dbClient[index].cargo;
       nomeItem.innerText = dbClient[index].nome;
-      salarioItem.innerText = dbClient[index].salario;
+      salarioItem.innerText = Number(dbClient[index].salario).toFixed(2);
       generoItem.innerText = dbClient[index].genero;
       situacaoItem.innerText = dbClient[index].situacaoAtual;
 

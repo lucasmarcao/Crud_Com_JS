@@ -67,8 +67,8 @@
         </div>
         <div class="linha row">
           <div class="col-6 label-dado">salário</div>
-          <input type="tel" name="$salario" class="col-6 input-dado" id="salario" oninput="mascaraSalario(this)"
-            onpaste="return false" ondrop="return false" disabled>
+          <input type="number" name="$salario" class="col-6 input-dado" id="salario" oninput="mascaraSalario(this)"
+          min="0" step="0.01" onpaste="return false" ondrop="return false" disabled>
         </div>
         <div class="linha row">
           <div class="col-6 label-dado ajuste">Situação atual</div>
