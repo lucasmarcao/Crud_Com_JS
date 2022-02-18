@@ -22,7 +22,7 @@
       <input type="hidden" name="subject" value="Crud com js.">
       <label for="id" class="id-label">ID</label></label>
       <input type="tel" class="campo input" name="$id" id="id" oninput="mascaraId(this)"
-        onclick="controlaFalhasInputId()" required>
+        onclick="controlaFalhasInputId()" onpaste="return false" ondrop="return false" required>
       <div class="centraliza">
         <button type="button" onclick="buscarBotao()" class="campo botao buscar" id="buscar">buscar</button>
         <button type="button" onclick="adcionarBotao()" class="campo botao adcionar" id="adcionar">adcionar</button>
@@ -68,7 +68,7 @@
         <div class="linha row">
           <div class="col-6 label-dado">salário</div>
           <input type="tel" name="$salario" class="col-6 input-dado" id="salario" oninput="mascaraSalario(this)"
-            disabled>
+          onpaste="return false" ondrop="return false"  disabled>
         </div>
         <div class="linha row">
           <div class="col-6 label-dado ajuste">Situação atual</div>
