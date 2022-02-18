@@ -1,36 +1,14 @@
 function salvarBotao() {
   const dbClient = listarClientes();
   const dbDatas = getLocalDatas();
+  let decimal = Number(document.getElementById("salario").value)
   if (
     nome.value.length >= 3 &&
     genero.value.length >= 3 &&
-    dbClient.length <= 100
+    dbClient.length <= 100 &&
+    decimal%0.01 == 0
   ) {
     entradaId.disabled = false;
-    console.clear();
-    console.log("dados Salvos !!!"); // mais codigo inutil
-    console.log(
-      "------------------------- \n" +
-        "ID :  " +
-        entradaId.value +
-        "\n" +
-        "CARGO :  " +
-        cargo.value +
-        "\n" +
-        "NOME :  " +
-        nome.value +
-        "\n" +
-        "GENERO :  " +
-        genero.value +
-        "\n" +
-        "SALARIO :  " +
-        salario.value +
-        "\n" +
-        "SITUAÇÃO :  " +
-        situacao.value +
-        "\n" +
-        "------------------------- "
-    );
     if (atualizaOuAdciona == "adciona") {
       //caso o usuario esteja adcionando dados
       console.info("ADICIONOU");
@@ -40,7 +18,7 @@ function salvarBotao() {
           genero: genero.value,
           id: Number(entradaId.value),
           nome: nome.value,
-          salario: Number(salario.value),
+          salario: Number(salario.value).toFixed(2),
           situacaoAtual: situacao.value,
         });
         criarDatas({
@@ -71,7 +49,7 @@ function salvarBotao() {
           genero: genero.value,
           id: Number(entradaId.value),
           nome: nome.value,
-          salario: Number(salario.value),
+          salario: Number(salario.value).toFixed(2),
           situacaoAtual: situacao.value,
         });
         AtualizarDatas(guardaIndexDeBusca, {

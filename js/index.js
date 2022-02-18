@@ -41,47 +41,6 @@ var imprimi =
   ":" +
   minuto.toString();
 
-if (mes < 10) {
-  imprimi =
-    " " +
-    dia.toString() +
-    "/0" +
-    mes.toString() +
-    "/" +
-    ano.toString() +
-    " " +
-    hora.toString() +
-    ":" +
-    minuto.toString();
-  if (minuto < 10) {
-    imprimi =
-      " " +
-      dia.toString() +
-      "/0" +
-      mes.toString() +
-      "/" +
-      ano.toString() +
-      " " +
-      hora.toString() +
-      ":0" +
-      minuto.toString();
-  }
-} else {
-  if (minuto < 10) {
-    imprimi =
-      " " +
-      dia.toString() +
-      "/0" +
-      mes.toString() +
-      "/" +
-      ano.toString() +
-      " " +
-      hora.toString() +
-      ":0" +
-      minuto.toString();
-  }
-}
-
 // isso deixa a var |imprimi| em tempo REAL.
 setInterval(() => {
   // renova todas as var a cada 1000 milisegundos.

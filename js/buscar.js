@@ -35,7 +35,7 @@ function buscarBotao() {
       cargo.value = dbClient[indice].cargo;
       nome.value = dbClient[indice].nome;
       genero.value = dbClient[indice].genero;
-      salario.value = dbClient[indice].salario;
+      salario.value = Number(dbClient[indice].salario).toFixed(2);
       situacao.value = dbClient[indice].situacaoAtual;
       guardaIndexDeBusca = indice;
       modificacao.innerHTML = " Data Modificação : "+ dbDatas[indice].modifica;
