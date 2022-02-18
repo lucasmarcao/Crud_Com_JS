@@ -11,7 +11,7 @@ document.getElementById("id").onkeypress = function(e) {
 
 document.getElementById("salario").onkeypress = function(e) {
   var chr = String.fromCharCode(e.which);
-  if ("1234567890.".indexOf(chr) < 0){
+  if ("1234567890,".indexOf(chr) < 0){
     return false;
   }
 
@@ -69,14 +69,11 @@ function mascaraSalario(n) {
     "2" != c[c.length - 1] && "3" != c[c.length - 1] &&
     "4" != c[c.length - 1] && "5" != c[c.length - 1] &&
     "6" != c[c.length - 1] && "7" != c[c.length - 1] &&
-    "8" != c[c.length - 1] && "9" != c[c.length - 1] &&
-    "." != c[c.length - 1]
+    "8" != c[c.length - 1] && "9" != c[c.length - 1] ||
+    n.value > 9999999
      ) {
     // impede entrar outro caractere que não seja número
     n.value = c.substring(0, c.length - 1);
     return;
   }
-
-  // delimita o maximo de caracteres no Input.
-  n.setAttribute("maxlength", "15");
 }
