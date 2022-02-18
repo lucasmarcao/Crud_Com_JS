@@ -63,12 +63,12 @@
         <div class="linha row">
           <div class="col-6 label-dado">gênero</div>
           <input type="text" name="$genero" class="col-6 input-dado" id="genero" minlength="3" maxlength="20" required
-           onpaste="return false" ondrop="return false" disabled>
+           disabled>
         </div>
         <div class="linha row">
           <div class="col-6 label-dado">salário</div>
           <input type="tel" name="$salario" class="col-6 input-dado" id="salario" oninput="mascaraSalario(this)"
-            disabled>
+            onpaste="return false" ondrop="return false" disabled>
         </div>
         <div class="linha row">
           <div class="col-6 label-dado ajuste">Situação atual</div>
