@@ -24,7 +24,7 @@ function salvarBotao() {
     nome.value.length >= 3 &&
     genero.value.length >= 3 &&
     dbClient.length <= 100 &&
-    contador <= 2
+    (contador <= 2 || guardaponto==0)
   ) {
     entradaId.disabled = false;
     if (atualizaOuAdciona == "adciona") {
